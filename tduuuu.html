@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="sq">
+<head>
+<meta charset="UTF-8">
+<title>For You ❤️</title>
+
+<style>
+body {
+  margin: 0;
+  background: black;
+  color: white;
+  font-family: Arial;
+  text-align: center;
+  overflow: hidden;
+}
+
+/* Zemra që bien */
+.heart {
+  position: fixed;
+  top: -10px;
+  font-size: 20px;
+  animation: fall linear infinite;
+}
+
+@keyframes fall {
+  to {
+    transform: translateY(100vh);
+  }
+}
+
+/* Kutia */
+.box {
+  margin-top: 100px;
+  font-size: 30px;
+  cursor: pointer;
+  animation: pulse 1s infinite;
+}
+
+@keyframes pulse {
+  50% { transform: scale(1.1); }
+}
+
+/* Përmbajtja */
+.content {
+  display: none;
+  margin-top: 50px;
+  animation: fade 2s forwards;
+}
+
+@keyframes fade {
+  from {opacity: 0;}
+  to {opacity: 1;}
+}
+
+/* Foto */
+img {
+  width: 180px;
+  border-radius: 20px;
+  margin-top: 15px;
+}
+</style>
+
+</head>
+
+<body>
+
+<div class="box" onclick="openGift()">🎁 Kliko këtu 🎁</div>
+
+<div class="content" id="content">
+  <h1>Te dua shume ❤️</h1>
+  <p>
+    Nuk e di si me e shpjegu me fjalë…  
+    por ti je gjëja më e bukur që më ka ndodh ndonjëherë ✨  
+  </p>
+
+  <img src="https://sula832.github.io/sula83/WhatsApp%20Image%202026-03-20%20at%2019.53.52.jpeg">
+
+  <p>
+    Çdo ditë me ty është si dhuratë 🎁  
+    dhe unë dua me qenë gjithmonë pranë teje ❤️  
+  </p>
+</div>
+
+<script>
+function openGift() {
+  document.querySelector(".box").style.display = "none";
+  document.getElementById("content").style.display = "block";
+}
+
+/* Gjeneron zemra */
+for (let i = 0; i < 30; i++) {
+  let heart = document.createElement("div");
+  heart.className = "heart";
+  heart.innerHTML = "❤️";
+  heart.style.left = Math.random() * 100 + "vw";
+  heart.style.animationDuration = (Math.random() * 3 + 2) + "s";
+  document.body.appendChild(heart);
+}
+</script>
+
+</body>
+</html>
